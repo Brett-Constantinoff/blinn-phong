@@ -1,1 +1,1 @@
-# OpenGL-Boiler-Plate
+# Blinn-Phong Shading Model
