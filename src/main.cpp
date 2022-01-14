@@ -1,11 +1,16 @@
 #define GL_SILENCE_DEPRECATION
 
+#include "../imgui/imgui.h"
+#include "../imgui/imgui_impl_glfw.h"
+#include "../imgui/imgui_impl_opengl3.h"
+
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <iostream>
+
 #include "../shaders/shader.h"
 
 int main(){
@@ -28,6 +33,11 @@ int main(){
     }
     glfwMakeContextCurrent(win);
     glViewport(0, 0, width, height);
+
+    /* IMGUI INIT */
+    IMGUI_CHECKVERSION();
+    ImGui::CreateContext();
+    ImGuiIO& io = ImGui::GetIO(); (void)io; //sets up input / output
 
     /* GLEW INIT */
     glewExperimental = true;
@@ -196,7 +206,4 @@ int main(){
     }
 
     return 0;
-
-
-
 }
