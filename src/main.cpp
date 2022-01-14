@@ -36,6 +36,7 @@ int main(){
         exit(EXIT_FAILURE);
     }
 
+    //renders 3D vertices properly
     glEnable(GL_DEPTH_TEST);
 
     Shader my_shader = Shader("../shaders/shader.shader");
@@ -171,10 +172,6 @@ int main(){
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(1);
 
-    
-
-   
-
     /* MAIN RENDER LOOP */
     while(!glfwWindowShouldClose(win)){
 
@@ -182,7 +179,6 @@ int main(){
 
         float rotation_angle = glm::radians(45.0f);
         float rotation_speed = (float)glfwGetTime() * rotation_angle;
-
 
         glClearColor(0.40f, 0.47f, 0.70f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -193,10 +189,7 @@ int main(){
         model = glm::rotate(model, rotation_speed, glm::vec3(0.0f, 1.0f, 0.5f));
         glUniformMatrix4fv(glGetUniformLocation(my_shader.ID, "model"), 1, GL_FALSE, &model[0][0]);
 
-
         glDrawArrays(GL_TRIANGLES, 0, sizeof(vertex_positions) / 3);    
-        
-       
 
         glfwSwapBuffers(win); //swap front and back buffer
         glfwPollEvents();
