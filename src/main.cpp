@@ -190,7 +190,7 @@ int main(){
     glEnableVertexAttribArray(1);
 
     bool main_window = true;
-    ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
+    glm::vec4 clear_color = glm::vec4(0.45f, 0.55f, 0.60f, 1.00f);
     glm::vec3 rotation_vec(0.0f, 1.0f, 0.5f);
 
     /* MAIN RENDER LOOP */
